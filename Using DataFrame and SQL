@@ -17,6 +17,7 @@ val customersRDD = sc.parallelize(customersRaw)
 val ordersDF = ordersRDD.
   map(o => o.split(",")(2).toInt).
   toDF("order_customer_id")
+  
 val customersDF = customersRDD.
   map(c => (c.split(",")(0).toInt, c.split(",")(1), c.split(",")(2))).
   toDF("customer_id", "customer_fname", "customer_lname")
